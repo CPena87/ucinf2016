@@ -6,10 +6,89 @@
 				<?php $slides = get_posts(array('post_type' => 'slider'))?>
 				<?php $bgSlide = wp_get_attachment_image_src( get_post_thumbnail_id($slides[0]->ID) , 'biggerHead')?>
 				<!-- Slideshow -->
-				<section id="slideshow" class="row  row-wide">
+				<?php /* <section id="slideshow" class="row  row-wide">
 					<img src="<?php echo $bgSlide[0]?>" class="img-full" alt="Slideshow Banner">
+					<div class="columns show-for-large show-for-medium medium-5 large-4">
+					
+						<?php echo apply_filters('the_content' , $slides[0]->post_content)?>
+						
+					</div>
+				</section> */?>
+				
+				<section id="slideshow" class="row  row-wide  main-heading" style="background:url('<?php echo $bgSlide[0]?>') scroll no-repeat top center #FFFFFF; ">
+					<div class="row">
+						<div class="small-12  medium-8  large-8  columns  main-heading__content">
+							<?php /* <h1 class="main-heading__content-title  open"><?php echo  $slides[0]->post_title ?></h1> */?>
+							<div class="main-heading__content-text">
+								<?php echo apply_filters('the_content' , $slides[0]->post_content)?>							
+							</div>
+						</div>
+						<!-- end .main-heading__content -->
+
+					</div>
+					<!-- end .row -->
 				</section>
+				
+				
+				<style>
+					
+					#slideshow p , #slideshow p > *{
+					font-size: 36px;
+					line-height: 100%;
+					text-shadow: 0 0 6px rgba(0,0,0,0.7);
+					text-transform: uppercase;
+					font-weight: 400;
+					font-family: Montserrat, Open sans, Helvetica, arial, sans-serif !important;
+					}
+					
+				</style>
+				
+				
 				<!-- end #slideshow -->
+				
+				<?php if(get_field('admision_bar' , 'options')){?>
+				
+				<section id="admission-bar" class="row row-wide">
+					<div class="row">
+						<div class="columns large-7 medium-7 small-12">
+							<?php echo apply_filters('the_content' ,  get_field('admision_bar_content' , 'options'))?>
+						</div>
+						<div class="columns large-3 medium-offset-1 medium-3 large-offset-1 small-12">
+							<a href="<?php echo get_page_link(20)?>" class="button  radius  white  admission-bar-block__button" title="Ir a Admisión">Ir a Admisión</a>
+						</div>
+					</div>
+				</section>
+				
+				<style>
+					<?php 
+					
+					$color = get_field('admision_bar_bg_color' , 'options');
+					$img = wp_get_attachment_image_src( get_field('admision_bar_img_bg' , 'options') , 'admissionbar');
+														
+					?>
+					
+					#admission-bar{min-height: 150px;/* background-image: url(<?php echo $img[0]?>);  */background-color: <?php echo $color?>; background-repeat: no-repeat; background-position: top right; }
+					#slideshow{margin-bottom: 0 !important}
+					#admission-bar p{padding-bottom: 0 !important; margin-bottom: 0 !important}
+					#admission-bar{ margin-bottom: 50px}
+					
+					.admission-bar-block__button {
+						font-size: 1.1rem;
+						padding: 0.9375rem 2.5rem 0.75rem;
+						margin-top: 60px;
+					}
+					
+					<?php /* @media (max-width: 1200px) {
+						#admission-bar{ background-image: none !important}
+						.admission-bar-block__button {
+							margin-top: 60px;
+						}
+					} */?>
+
+					
+				</style>
+				
+				<?php }?>
 				
 				<!-- System (Sistema Continuo de estudios) -->
 				<section id="system" class="row">
@@ -33,7 +112,9 @@
 										<div class="small-12  medium-6  medium-push-6  large-6  large-push-6  columns  system-block__heading" data-equalizer-watch="system-block-horizontal">
 											<div class="row">
 												<a href="<?php echo get_page_link('87')?>" class="system-block__heading-anchor" title="Ver oferta académica">
-													<img src="<?php echo get_bloginfo('template_directory')?>/images/system-block-image-1.jpg" class="system-block__heading-image  img-full" alt="Imagen Pregrado">
+													<?php $img_pregrado = wp_get_attachment_image_src( get_field('mini_imagen' , 87) , 'newsSmall')?>
+													<img src="<?php echo $img_pregrado[0]?>" class="system-block__heading-image  img-full" alt="Imagen pregrado">
+													
 												</a>
 											</div>
 										</div>
@@ -65,7 +146,8 @@
 										<div class="small-12  columns  system-block__heading">
 											<div class="row">
 												<a href="<?php echo get_page_link('34')?>" class="system-block__heading-anchor" title="Ver programas">
-													<img src="<?php echo get_bloginfo('template_directory')?>/images/system-block-image-2.jpg" class="system-block__heading-image  img-full" alt="Imagen Minor">
+													<?php $img_minor = wp_get_attachment_image_src( get_field('mini_imagen' , 34) , 'newsSmall')?>
+													<img src="<?php echo $img_minor[0]?>" class="system-block__heading-image  img-full" alt="Imagen Minor">
 												</a>
 											</div>
 											<!-- end .row -->
@@ -91,7 +173,8 @@
 										<div class="small-12  columns  system-block__heading">
 											<div class="row">
 												<a href="<?php echo get_page_link('475')?>" class="system-block__heading-anchor" title="Ve más allá">
-													<img src="<?php echo get_bloginfo('template_directory')?>/images/system-block-image-3.jpg" class="system-block__heading-image  img-full" alt="Imagen Postgrado">
+													<?php $img_postgrado = wp_get_attachment_image_src( get_field('mini_imagen' , 475) , 'newsSmall')?>
+													<img src="<?php echo $img_postgrado[0]?>" class="system-block__heading-image  img-full" alt="Imagen postgrado">
 												</a>
 											</div>
 											<!-- end .row -->
@@ -151,7 +234,10 @@
 									</div>
 									<!-- end .tabs-panel__block-wrapper -->
 								</div>
-								<?php echo get_the_post_thumbnail($facultad->ID , 'tabsizeTall' , array('class' => 'tab-panel__image img-full' , 'alt' => $facultad->post_title))?>
+								
+								<?php $img_facultad = wp_get_attachment_image_src( get_field('imagen_tabs_facultad' , $facultad->ID) , 'tabsizeTall')?>
+								<img src="<?php echo $img_facultad[0]?>" class="tab-panel__image img-full" alt="<?php echo $facultad->post_title?>">
+								<?php /* <?php echo get_the_post_thumbnail($facultad->ID , 'tabsizeTall' , array('class' => 'tab-panel__image img-full' , 'alt' => $facultad->post_title))?> */?>
 								
 							</div>
 							<!-- end .tabs-panel -->
@@ -357,7 +443,7 @@
 				</section>
 				<!-- end #shortcuts -->
 				
-				<!-- Testimony (Trstimonios) -->
+				<?php /* <!-- Testimony (Trstimonios) -->
 				<section id="testimony" class="row  row-wide">
 					<div class="row  testimony-wrapper" data-equalizer="testimony">
 						<!-- Heading -->
@@ -384,7 +470,7 @@
 					</div>
 					<!-- end .row -->
 				</section>
-				<!-- end #testimony -->
+				<!-- end #testimony --> */?>
 			</div>
 			<!-- end .main-container -->
 

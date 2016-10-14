@@ -56,11 +56,12 @@
 
 							<!-- System Tabs -->
 							<ul id="facultie-system-tabs" class="tabs" data-tabs>
-								<li class="tabs-title is-active">
-									<a href="#panel_minor" aria-selected="true">Minor<small>Formación Académica Complementaria</small></a>
-								</li>
+								
 								<li class="tabs-title">
 									<a href="#panel_undergraduate">Pregrado<small>Grado Académico Universitario</small></a>
+								</li>
+								<li class="tabs-title is-active">
+									<a href="#panel_minor" aria-selected="true">Minor<small>Formación Académica Complementaria</small></a>
 								</li>
 								<li class="tabs-title">
 									<a href="#panel_postgraduate">Postgrado<small>Perfeccionamiento Contínuo</small></a>

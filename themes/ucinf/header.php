@@ -34,6 +34,8 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	
+	<link rel="shortcut icon" href="<?php echo get_bloginfo('template_directory')?>/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="<?php echo get_bloginfo('template_directory')?>/favicon.ico" type="image/x-icon">
 	
 	<!-- Slick Slider Files -->
 	<!--<link rel="stylesheet" type="text/css" href="plugins/slick-slider/slick.css">
@@ -71,7 +73,7 @@
 								<a href="https://goo.gl/maps/kUKHAsBe8XD2" class="header-top__menu-anchor" title="Visítanos" target="_blank">Pedro de Valdivia #450</a>
 							</li>
 							<li class="header-top__menu-item  header-top__menu-item--last">
-								<a href="#" class="header-top__menu-button" title="Contáctanos">Contáctanos</a>
+								<a href="#" class="header-top__menu-button" title="Contáctanos" id="contactTop">Contáctanos</a>
 							</li>
 						</ul>
 					</div>
@@ -212,7 +214,12 @@
 			<!-- Sidebar Nav -->
 			<div id="sidebar-nav" class="off-canvas  position-right  hide-for-large" data-off-canvas data-position="right">
 				<!-- Menu -->
-				<ul class="menu  vertical  sidebar-nav__menu" data-drilldown>
+				
+				<?php wp_nav_menu(array('theme_location'  => 'mobile' , 'menu_id' => 'mobilemenu' ,'menu_class' => 'menu  vertical  sidebar-nav__menu' , 'container' => 'none', 'items_wrap'      => '<ul id="%1$s" class="%2$s" data-drilldown="">%3$s</ul>', 'fallback_cb' => 'f6_drill_menu_fallback', 
+            'walker' => new F6_DRILL_MENU_WALKER()))	 ?>
+				
+				
+				<?php /* <ul class="menu  vertical  sidebar-nav__menu" data-drilldown>
 					<li class="sidebar-nav__menu-title">
 						<a class="sidebar-nav__menu-item-anchor">
 							<i class="fa fa-user fa-fw"></i> Acceso <i class="fa fa-angle-right fa-fw"></i>
@@ -360,7 +367,7 @@
 						<a href="#" class="sidebar-nav__menu-item-anchor  sidebar-nav__menu-item-anchor--lowercase" title="Dirección de Asuntos Estudiantiles (DAE)">Dirección de Asuntos Estudiantiles (DAE)</a>
 					</li>
 					<!-- end .sidebar-nav__menu-item -->
-				</ul>
+				</ul> */?>
 				<!-- end .sidebar-nav__menu -->
 			</div>
 			<!-- end #sibebar-nav -->

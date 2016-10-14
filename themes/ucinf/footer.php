@@ -4,11 +4,18 @@
 				<!-- Footer Top -->
 <div class="row  footer-top">
 	<!-- Block 4 (Logo) -->
-	<div class="small-12  medium-3  large-2  columns  footer-block">
+	<div class="small-12  medium-3  large-3  columns  footer-block">
 		<img src="<?php echo get_bloginfo('template_directory')?>/images/logos/footer-main-logo.png" class="footer-block__logo" alt="Logo UCINF">
 	</div>
 	<!-- end .footer-block -->
-
+	
+	
+	<?php  dynamic_sidebar('footer-1')?>
+	<?php  dynamic_sidebar('footer-2')?>
+	<?php  dynamic_sidebar('footer-3')?>
+	
+	
+	<?php /* 
 	<!-- Block 1 (La Universidad) -->
 	<div class="small-12  medium-3  large-3 large-offset-1  columns  footer-block">
 		<ul class="menu  vertical  footer-block__menu">
@@ -71,7 +78,7 @@
 			</li>
 		</ul>
 	</div>
-	<!-- end .footer-block -->
+	<!-- end .footer-block --> */?>
 </div>
 <!-- end .footer-top -->
 
@@ -211,5 +218,22 @@
 	
 //})
 	<?php }?>
+	
+<?php if(get_field('custom_js' , 'options')){
+	echo get_field('custom_js' , 'options');
+}?>
+	
 </script>
+
+<?php if(get_field('custom_css' , 'options')){ ?>
+<style>
+	<?php echo get_field('custom_css' , 'options');?>
+</style>
+<?php } ?>
+
+
+<?php if(get_field('custom_html' , 'options')){
+	echo get_field('custom_html' , 'options');
+} ?>
+
 </html>

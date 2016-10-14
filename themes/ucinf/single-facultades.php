@@ -45,13 +45,13 @@
 				<section id="facultie-about" class="row  row-wide">
 					<div class="row">
 						<!-- Tabs -->
-						<div class="small-3  columns">
+						<div class="medium-3 small-12 columns">
 							<ul id="about-tabs" class="tabs vertical" data-tabs>
 								<li class="tabs-title is-active"><a href="#panel_about">Sobre la Facultad <i class="fa fa-angle-right fa-fw trsn"></i></a></li>
 								<li class="tabs-title"><a href="#panel_mission" aria-selected="true">Misión <i class="fa fa-angle-right fa-fw trsn"></i></a></li>
 								<li class="tabs-title"><a href="#panel_vision">Visión <i class="fa fa-angle-right fa-fw trsn"></i></a></li>
-								<li class="tabs-title"><a href="#panel_philosophy">Filosofía <i class="fa fa-angle-right fa-fw trsn"></i></a></li>
-								<li class="tabs-title"><a href="#panel_resume">Currículum <i class="fa fa-angle-right fa-fw trsn"></i></a></li>
+								<?php /* <li class="tabs-title"><a href="#panel_philosophy">Filosofía <i class="fa fa-angle-right fa-fw trsn"></i></a></li>
+								<li class="tabs-title"><a href="#panel_resume">Currículum <i class="fa fa-angle-right fa-fw trsn"></i></a></li> */?>
 								<li class="tabs-title"><a href="#panel_president">El Decano <i class="fa fa-angle-right fa-fw trsn"></i></a></li>
 								<li class="tabs-title"><a href="#panel_docentes">Docentes <i class="fa fa-angle-right fa-fw trsn"></i></a></li>
 								
@@ -61,7 +61,7 @@
 						</div>
 						
 						<!-- Tabs Content -->
-						<div class="small-9  columns">
+						<div class="medium-9 small-12 columns">
 							<div id="about-tabs-content" class="tabs-content vertical" data-tabs-content="about-tabs">
 								
 								<!-- Panel Mission (Misión) -->
@@ -94,7 +94,7 @@
 								</div>
 								<!-- end #panel_about -->
 
-								<!-- Panel Philosophy (Filosofía) -->
+								<?php /* <!-- Panel Philosophy (Filosofía) -->
 								<div id="panel_philosophy" class="tabs-panel">
 									<h1 class="tabs-panel__title">Filosofía</h1>
 									<div class="tabs-panel__content">
@@ -112,7 +112,7 @@
 									</div>
 									<!-- end .tabs-panel__content -->
 								</div>
-								<!-- end #panel_resume -->
+								<!-- end #panel_resume --> */?>
 
 								<!-- Panel President (El Rector) -->
 								<div id="panel_president" class="tabs-panel">
@@ -156,15 +156,17 @@
 
 							<!-- System Tabs -->
 							<ul id="facultie-system-tabs" class="tabs" data-tabs>
+								
 								<li class="tabs-title is-active">
-									<a href="#panel_minor" aria-selected="true">Minor<small>Formación Académica Complementaria</small></a>
+									<a href="#panel_undergraduate">Pregrado<small>Grado Académico Universitario</small></a>
 								</li>
 								<li class="tabs-title">
-									<a href="#panel_undergraduate">Pregrado<small>Grado Académico Universitario</small></a>
+									<a href="#panel_minor" aria-selected="true">Minor<small>Formación Académica Complementaria</small></a>
 								</li>
 								<li class="tabs-title">
 									<a href="#panel_postgraduate">Postgrado<small>Perfeccionamiento Contínuo</small></a>
 								</li>
+								
 							</ul>
 							<!-- end #facultie-system-tabs -->
 							
@@ -173,7 +175,7 @@
 							<div id="facultie-system-content" class="tabs-content" data-tabs-content="facultie-system-tabs">
 								
 								<!-- Panel Minor -->
-								<div id="panel_minor" class="tabs-panel is-active">
+								<div id="panel_minor" class="tabs-panel">
 									<div class="row">
 										<?php $degrees = get_posts(array('post_type' => 'carreras' , 'facultad' => $post->post_name , 'nivel' => 'minor', 'numberposts' => -1))?>
 										<?php if($degrees){?>
@@ -206,7 +208,7 @@
 								<!-- end #panel_minor -->
 
 								<!-- Panel Undergraduate -->
-								<div id="panel_undergraduate" class="tabs-panel">
+								<div id="panel_undergraduate" class="tabs-panel is-active">
 									<div class="row">
 										<?php $degrees = get_posts(array('post_type' => 'carreras' , 'facultad' => $post->post_name , 'nivel' => 'pregrado', 'numberposts' => -1))?>
 										<?php if($degrees){?>
@@ -392,6 +394,8 @@
 
 				
 				
+<?php /* ?>
+
 				<?php $testimonios = get_posts(array('post_type' => 'testimonios' , 'numberposts' => 1 , 'facultad' => $post->post_name))?>
 				<?php if($testimonios){?>
 				<!-- Testimony (Testimonios) -->
@@ -425,6 +429,8 @@
 					<!-- end .row -->
 				</section>
 				<?php }?>
+<?php */ ?>
+
 				
 				
 				

@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"page_",
+				"page-intro__content"
+			],
+			[
+				"sys",
+				"system-block__title"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
 				"areas",
 				"areaslide"
 			],
@@ -26,10 +50,6 @@
 			[
 				"menu",
 				"menu-navegacion"
-			],
-			[
-				"padding",
-				"padding"
 			],
 			[
 				"sub",
@@ -112,10 +132,6 @@
 				"text-decoration"
 			],
 			[
-				"max",
-				"max-width"
-			],
-			[
 				"fon",
 				"font-weight"
 			],
@@ -162,10 +178,6 @@
 			[
 				"pading",
 				"padding-left"
-			],
-			[
-				"paddin",
-				"padding"
 			],
 			[
 				"pre",
@@ -343,7 +355,47 @@
 			"file": "themes/ucinf/index.php",
 			"settings":
 			{
-				"buffer_size": 19733,
+				"buffer_size": 22894,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/ucinf/page-18.php",
+			"settings":
+			{
+				"buffer_size": 12208,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/ucinf/single-facultades.php",
+			"settings":
+			{
+				"buffer_size": 22056,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/ucinf/footer.php",
+			"settings":
+			{
+				"buffer_size": 8441,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/ucinf/category.php",
+			"settings":
+			{
+				"buffer_size": 45,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/ucinf/functions.php",
+			"settings":
+			{
+				"buffer_size": 14829,
 				"line_ending": "Unix"
 			}
 		},
@@ -351,7 +403,42 @@
 			"file": "themes/ucinf/style.css",
 			"settings":
 			{
-				"buffer_size": 57523,
+				"buffer_size": 72844,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/ucinf/single-carreras.php",
+			"settings":
+			{
+				"buffer_size": 11586,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/ucinf/single.php",
+			"settings":
+			{
+				"buffer_size": 5244,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php get_header()?>\n<?php $bg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID) , 'biggerHead')?>\n\n\n			<!-- Main Container -->\n			<div id=\"university-container\" class=\"off-canvas-content  main-container\" style=\"min-height: 800px;\" data-off-canvas-content>\n				<!-- Main Heading (Career Heading) -->\n				<section id=\"university-heading\" class=\"row  row-wide  main-heading\" style=\"background:url('<?php echo $bg[0]?>') scroll no-repeat top center #FFFFFF;\">\n					<div class=\"row\">\n						<div class=\"small-12  medium-6  large-6  columns  main-heading__content\">\n							<h1 class=\"main-heading__content-title  open\"><?php echo $post->post_title?></h1>\n							<div class=\"main-heading__content-text\">\n								<p><?php echo $post->post_excerpt?></p>							\n							</div>\n						</div>\n						<!-- end .main-heading__content -->\n\n					</div>\n					<!-- end .row -->\n				</section>\n				<!-- end .main-heading -->\n				\n				\n				<!-- Page Intro -->\n				<section class=\"row  row-wide  page-intro\">\n					<div class=\"row\" data-equalizer=\"page-intro\">\n						<div class=\"small-12  medium-12  large-7  columns  page-intro__content\" data-equalizer-watch=\"page-intro\">\n							<?php echo apply_filters('the_content',$post->post_content)?>\n						</div>\n						<!-- end .page-intro__content -->\n						\n						<div class=\"small-1  columns  show-for-medium\" data-equalizer-watch=\"page-intro\">\n							<div class=\"page-intro__divider\"></div>\n						</div>\n						<!-- end .page-intro__divider -->\n						\n						<?php if(get_field('titulo_caja_destacada')){?>\n						<div class=\"small-12  medium-12  large-4  columns  page-intro__content\" data-equalizer-watch=\"page-intro\">\n							<div class=\"small-12  columns  page-intro__content-wrapper\">\n								<h2 class=\"page-intro__content-title  open\"><i><?php echo get_field('titulo_caja_destacada')?></i></h2>\n								<p><i><?php echo get_field('caja_destacada')?></i></p>\n							</div>\n						</div>\n						\n						<?php }?>\n					</div>\n					<!-- end .row -->\n				</section>\n				<!-- end .page-intro -->\n				\n				\n				\n				<?php if(get_field('modulos')){?>\n				<?php $modulos = get_field('modulos')?>\n				\n				<section id=\"modules\" class=\"row page-intro\">\n					\n					<?php foreach($modulos as $modulo):?>\n						\n						<?php if($modulo['acf_fc_layout'] == 'text_block'){?>\n							\n							<?php if($modulo[\"columnas\"] == '1'){?>\n								\n								<div class=\"small-12 columns\">\n									<?php echo apply_filters('the_content' , $modulo['bloque'])?>\n								</div>\n								<div class=\"clear separator border\"></div>\n							<?php }elseif($modulo['columnas'] == '2'){?>\n								\n								<div class=\"small-6 columns\">\n									<?php echo apply_filters('the_content' , $modulo['bloque'])?>\n								</div>\n								<div class=\"small-6 columns\">\n									<?php echo apply_filters('the_content' , $modulo['bloque_de_texto_2'])?>\n								</div>\n								<div class=\"clear separator border\"></div>\n							<?php }elseif($modulo['columnas'] == '3'){?>\n								\n								<div class=\"small-4 columns\">\n									<?php echo apply_filters('the_content' , $modulo['bloque'])?>\n								</div>\n								<div class=\"small-4 columns\">\n									<?php echo apply_filters('the_content' , $modulo['bloque_de_texto_2'])?>\n								</div>\n								<div class=\"small-4 columns\">\n									<?php echo apply_filters('the_content' , $modulo['bloque_de_texto_3'])?>\n								</div>\n								\n							<?php }elseif($modulo['columnas'] == '1-2'){?>\n								\n								<div class=\"small-4 columns\">\n									<?php echo apply_filters('the_content' , $modulo['bloque'])?>\n								</div>\n								<div class=\"small-8 columns\">\n									<?php echo apply_filters('the_content' , $modulo['bloque_de_texto_2'])?>\n								</div>\n								<div class=\"clear separator border\"></div>\n							<?php }elseif($modulo['columnas'] == '2-1'){?>\n								\n								<div class=\"small-8 columns\">\n									<?php echo apply_filters('the_content' , $modulo['bloque'])?>\n								</div>\n								<div class=\"small-4 columns\">\n									<?php echo apply_filters('the_content' , $modulo['bloque_de_texto_2'])?>\n								</div>\n								<div class=\"clear separator border\"></div>\n							<?php }?>\n								\n						<?php }elseif( $modulo['acf_fc_layout'] == 'acordeon'){?>\n							\n							<div class=\"small-10 small-offset-1 columns\">\n								\n								<ul class=\"accordion\" data-accordion>\n									<?php foreach($modulo['acordeones'] as $acordeon):?>\n									  <li class=\"accordion-item \" data-accordion-item>\n										<a href=\"#\" class=\"accordion-title\"><?php echo $acordeon['titulo']?></a>\n										<div class=\"accordion-content\" data-tab-content>\n										  <?php echo apply_filters('the_content', $acordeon['descripcion'])?>\n										</div>\n									  </li>\n									<?php endforeach?>							  \n								</ul>\n								\n							</div>\n							<div class=\"clear\"></div>\n						<?php }elseif( $modulo['acf_fc_layout'] == 'pestanas'){?>\n								\n								<div class=\"pestanas\">\n							\n									<div class=\"small-3  columns\">\n										<ul id=\"about-tabs\" class=\"tabs vertical\" data-tabs>\n\n											<?php $pcounter = 0?>\n											<?php foreach($modulo['tabs'] as $pestana):?>\n												<?php $pcounter++ ?>\n												<li class=\"tabs-title <?php echo $pcounter == 1 ? 'is-active' : '';?>\"><a href=\"#panel_<?php echo $pcounter?>\"><?php echo $pestana['titulo']?> <i class=\"fa fa-angle-right fa-fw trsn\"></i></a></li>\n											<?php endforeach?>\n\n										</ul>\n\n									</div>\n\n\n									<div class=\"small-9  columns\">\n										<div id=\"about-tabs-content\" class=\"tabs-content vertical\" data-tabs-content=\"about-tabs\">\n\n											<?php $ppcounter = 0?>\n											<?php foreach($modulo['tabs'] as $pestana):?>\n											<?php $ppcounter++ ?>\n											<!-- Panel Mission (Misión) -->\n											<div id=\"panel_<?php echo $ppcounter?>\" class=\"tabs-panel <?php echo $ppcounter == 1 ? 'is-active' : '';?>\">\n												<h1 class=\"tabs-panel__title\"><?php echo $pestana['titulo']?></h1>\n												<div class=\"tabs-panel__content\">\n													<?php echo apply_filters('the_content' , $pestana['descripcion'])?>\n												</div>\n												<!-- end .tabs-panel__content -->\n											</div>\n											<!-- end #panel_mission -->\n											<?php endforeach?>\n\n										</div>\n										<!-- end #about-tabs-content -->\n									</div>\n									<div class=\"clear\"></div>\n									\n									\n								</div>\n								\n								\n						<?php }?>\n						\n					<?php endforeach;?>\n					\n				</section>\n				<?php }?>\n				\n				\n				\n				\n				\n			</div>\n			<!-- end #university-container -->\n\n\n<?php get_footer()?>",
+			"file": "themes/ucinf/single-features.php",
+			"file_size": 6551,
+			"file_write_time": 1476192577000000,
+			"settings":
+			{
+				"buffer_size": 6550,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "themes/ucinf/header.php",
+			"settings":
+			{
+				"buffer_size": 16753,
 				"line_ending": "Unix"
 			}
 		}
@@ -359,11 +446,15 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
 		],
-		"width": 0.0
+		"width": 449.0
 	},
 	"console":
 	{
@@ -380,6 +471,17 @@
 	},
 	"file_history":
 	[
+		"/Users/FrontUpmedia/Github/ucinf2016/themes/ucinf/page-475.php",
+		"/Users/FrontUpmedia/Github/ucinf2016/themes/ucinf/page-34.php",
+		"/Users/FrontUpmedia/Github/ucinf2016/themes/ucinf/page-87.php",
+		"/Users/FrontUpmedia/Github/ucinf2016/themes/ucinf/page-12.php",
+		"/Users/FrontUpmedia/Github/ucinf2016/themes/ucinf/page-la-universidad.php",
+		"/Users/FrontUpmedia/Github/ucinf2016/themes/ucinf/page-20.php",
+		"/Users/FrontUpmedia/Github/ucinf2016/themes/ucinf/page-28.php",
+		"/Users/FrontUpmedia/Github/ucinf2016/themes/ucinf/single-carreras.php",
+		"/Users/FrontUpmedia/Github/ucinf2016/themes/ucinf/single-facultades.php",
+		"/Users/FrontUpmedia/Github/ucinf2016/themes/ucinf/page.php",
+		"/Users/FrontUpmedia/Github/ucinf2016/themes/ucinf/single.php",
 		"/Users/FrontUpmedia/Github/dri/dri/footer-insider.php",
 		"/Users/FrontUpmedia/Github/dri/dri/index.php",
 		"/Users/FrontUpmedia/Github/dri/dri/functions.php",
@@ -496,18 +598,7 @@
 		"/Users/upmedia/Desktop/Sitio Alimentate Sano/receta_navidad_1.php",
 		"/Users/upmedia/Desktop/Sitio Alimentate Sano/receta_ens_navidad_2.php",
 		"/Users/upmedia/Desktop/Sitio Alimentate Sano/receta_ens_navidad_1.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/receta_ens_navidad_5.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/receta_ens_navidad_4.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/receta_ens_navidad_3.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/receta_de_la_semana_51.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/recetas_todos.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/recetas_postres.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/recetas_ensaladas.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/recetas_plato_fondo.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/noticias.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/noticia_2014_diciembre_16_14.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/noticia_2014_diciembre_09_14.php",
-		"/Users/upmedia/Desktop/Sitio Alimentate Sano/receta_de_la_semana_50.php"
+		"/Users/upmedia/Desktop/Sitio Alimentate Sano/receta_ens_navidad_5.php"
 	],
 	"find":
 	{
@@ -515,9 +606,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"all files",
 			"Open files",
 			"/Users/FrontUpmedia/Github/dri/dri/style.css",
 			"/dri/style.css",
@@ -531,6 +623,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"testimonio",
+			".person-block",
+			"person-block",
+			"small-12  medium-6  large-6  columns",
+			"contiene",
+			"docentes",
+			"person-block",
+			"heading__content-title",
+			"js-drilldown-back",
+			"back",
+			"230px",
+			"height:230px",
+			"DAE",
+			"table",
+			"carreras acreditadas",
+			"small-6 columns",
+			".tooltip",
+			"tooltip",
 			"left",
 			"credits",
 			"bajada",
@@ -640,25 +750,7 @@
 			"navi",
 			"navigation",
 			"map",
-			"post-thumbnails",
-			"{\n",
-			"navigation",
-			"type and press",
-			"see more",
-			".slider",
-			"bin",
-			"a.nav",
-			"analytics",
-			".lacampana p",
-			"#backslides",
-			"frameVideo",
-			".donarTweet",
-			"slides-container",
-			"backslides",
-			".contentLeft",
-			".donar",
-			"donarTwee",
-			"social"
+			"post-thumbnails"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -677,7 +769,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -685,7 +777,123 @@
 					"file": "themes/ucinf/index.php",
 					"settings":
 					{
-						"buffer_size": 19733,
+						"buffer_size": 22894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20941,
+								20940
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8995.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "themes/ucinf/page-18.php",
+					"settings":
+					{
+						"buffer_size": 12208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3597,
+								3597
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1238.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "themes/ucinf/single-facultades.php",
+					"settings":
+					{
+						"buffer_size": 22056,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19185,
+								19174
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7477.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "themes/ucinf/footer.php",
+					"settings":
+					{
+						"buffer_size": 8441,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5852,
+								5852
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1928.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "themes/ucinf/category.php",
+					"settings":
+					{
+						"buffer_size": 45,
 						"regions":
 						{
 						},
@@ -698,12 +906,41 @@
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "themes/ucinf/functions.php",
+					"settings":
+					{
+						"buffer_size": 14829,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10004,
+								10004
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false,
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5260.0,
+						"translation.y": 4463.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -711,23 +948,23 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
-					"buffer": 1,
+					"buffer": 6,
 					"file": "themes/ucinf/style.css",
 					"settings":
 					{
-						"buffer_size": 57523,
+						"buffer_size": 72844,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2606,
-								2606
+								71715,
+								71715
 							]
 						],
 						"settings":
@@ -738,7 +975,122 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 613.0,
+						"translation.y": 45987.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "themes/ucinf/single-carreras.php",
+					"settings":
+					{
+						"buffer_size": 11586,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7376,
+								7376
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1903.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "themes/ucinf/single.php",
+					"settings":
+					{
+						"buffer_size": 5244,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4063,
+								4063
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 1.0,
+						"translation.y": 1255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "themes/ucinf/single-features.php",
+					"settings":
+					{
+						"buffer_size": 6550,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6353,
+								6353
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2065.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "themes/ucinf/header.php",
+					"settings":
+					{
+						"buffer_size": 16753,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								937,
+								937
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3305.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -774,7 +1126,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.460318327506,
 			1.0
 		],
 		"rows":

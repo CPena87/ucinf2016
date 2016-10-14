@@ -65,10 +65,10 @@
 								<div class="clear separator border"></div>
 							<?php }elseif($modulo['columnas'] == '2'){?>
 								
-								<div class="small-6 columns">
+								<div class="medium-6 small-12 columns">
 									<?php echo apply_filters('the_content' , $modulo['bloque'])?>
 								</div>
-								<div class="small-6 columns">
+								<div class="medium-6 small-12 columns">
 									<?php echo apply_filters('the_content' , $modulo['bloque_de_texto_2'])?>
 								</div>
 								<div class="clear separator border"></div>
@@ -106,7 +106,7 @@
 								
 						<?php }elseif( $modulo['acf_fc_layout'] == 'acordeon'){?>
 							
-							<div class="small-10 small-offset-1 columns">
+							<div class="small-12 medium-10 medium-offset-1 columns">
 								
 								<ul class="accordion" data-accordion>
 									<?php foreach($modulo['acordeones'] as $acordeon):?>
@@ -218,7 +218,7 @@
 					<div class="row  faq-container" data-equalizer="faq" data-equalize-by-row="true">
 						
 						
-						<div class="small-10 small-offset-1 columns">
+						<div class="small-12 medium-10 medium-offset-1 columns">
 								
 							<ul class="accordion" data-accordion>
 								<?php $faqs = get_field('preguntas_frecuentes')?>

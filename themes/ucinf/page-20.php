@@ -3,7 +3,7 @@
 <?php $bg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID) , 'full')?>
 <div id="university-container" class="off-canvas-content  main-container" style="min-height: 800px;" data-off-canvas-content>
 
-<section class="row row-wide" style="background-image:url(<?php echo $bg[0]?>); background-color:#01c0b1; background-position: top right; background-repeat:no-repeat; background-size: auto 100%; padding-top:60px">
+<section class="row row-wide" style="background-image:url(<?php echo $bg[0]?>); background-color:#00BAF2; background-position: top right; background-repeat:no-repeat; background-size: auto 100%; padding-top:60px">
 	<div class="columns small-12 medium-6 large-4 large-offset-2">
 		
 		<div class="campaign-call">
@@ -26,7 +26,7 @@
 
 
 <!-- Facultie System -->
-<section id="facultie-system" class="row  row-wide">
+<section id="facultie-system" class="row  row-wide" style="box-shadow: 0 -5px 20px rgba(0,0,0,.2);">
 	<div class="row">
 		<div class="small-12  columns">
 			<h1 class="facultie-system__title">Oferta académica disponible 2017</h1>
@@ -102,7 +102,7 @@
 						<h1 class="tabs-panel__block-title montse">
 							<small class="tabs-panel__block-subtitle montse">Facultad de</small><?php echo $facultad->post_title ?>
 						</h1>
-						<p class="tabs-panel__block-text">Universidad Ucinf ha trabajado a lo largo de los años, no sólo para dar cumplimiento a su plan estratégico, sino para atender los compromisos adquiridos en los procesos de acreditación institucional anteriores.</p>
+						<p class="tabs-panel__block-text show-for-large"><?php echo $facultad->post_excerpt?></p>
 						<a href="<?php echo get_permalink($facultad->ID)?>" class="tabs-panel__block-anchor  anchor-link" title="Conoce más sobre la facultad">Conoce más sobre la facultad <i class="fa fa-angle-double-right fa-fw"></i></a>
 					</div>
 					<!-- end .tabs-panel__block-wrapper -->
